@@ -53,7 +53,18 @@
         }
 
         function deleteArticle() {
-            // todo
+            $.ajax({
+                type: "POST",
+                url: `/post`,
+                data: {memo_give: memo},
+                success: function (response) {
+                    get_examples(db.memos.delete_one{"memo":memo_give}),
+                    alert(response["msg"])
+                    window.location.href = "/post"
+                }
+
+
+                }
         }
     </script>
 
