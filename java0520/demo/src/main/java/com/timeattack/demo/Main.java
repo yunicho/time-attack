@@ -55,19 +55,12 @@ class PlayerATeam extends Player
         if(fourthName==fourthNum) strike++;
 
         if(firstName == secondNum || firstName == thirdNum || firstName == fourthNum) ball++;
-        if(secondName == firstNum || secondName == thirdNum || secondName == fourthNum) ball++;
-        if(thirdName == secondNum || thirdName == firstNum || thirdName == fourthNum) ball++;
-        if(fourthName == firstNum || fourthName == thirdNum || fourthName == secondNum) ball++;
-
-        // TODO
-
-        if(strike == 4) {
-            System.out.println("Congratulation!");
-            super.setIsEnd(true);
-        } else {
-            System.out.println("Strike : "+strike+", Ball :"+ball+", Out: "+out);
-        }
-    }
+        if(second    System.out.println("Congratulation!");
+        super.setIsEnd(true);
+    } else {
+    System.out.println("Strike : "+strike+", Ball :"+ball+", Out: "+out);
+}
+}
 }
 
 class PlayerBTeam extends Player
@@ -136,4 +129,10 @@ public class Main {
             player.printFightList();
         }
     }
-}
+}Name == firstNum || secondName == thirdNum || secondName == fourthNum) ball++;
+        if(thirdName == secondNum || thirdName == firstNum || thirdName == fourthNum) ball++;
+        if(fourthName == firstNum || fourthName == thirdNum || fourthName == secondNum) ball++;
+
+        // TODO
+
+        if(strike == 4) {
