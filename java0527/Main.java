@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Set;
 import java.util.HashSet;
 
 class Calculator
@@ -10,14 +10,9 @@ class Calculator
     {
         int result = 0;
         // todo
-        Set<Integer> combine = new Hashset<>(Arrays.asList(A));
-        for(int numa:A) {
-            combine.add(numa);
-        }
-
-        Set<Integer> combine = new Hashset<>(Arrays.asList(B));
-        for(int numb:B) {
-            if ()
+        Set<Integer> set = new HashSet(A);
+        Set<Integer> set2 = new HashSet(B);
+            set.addAll(set2);
             );
         }
         return result;
