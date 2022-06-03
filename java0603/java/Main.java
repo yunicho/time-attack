@@ -1,3 +1,6 @@
+import com.sparta.week02.GateWay;
+import com.sparta.week02.Subnet;
+
 public class Main {
     public static void main(String[] args) {
         Subnet subnet_a = new Subnet(1,"172.31.0.0/20","ap-northeast-2a");
