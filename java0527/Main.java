@@ -1,26 +1,134 @@
+import java.util.Scanner;
+import java.util.HashSet;
+
+class Calculator
+{
+    public Calculator() {}
+
+    // Sum of A n B
+    public int intersection(int[] A, int[] B)
+    {
+        int result = 0;
+        // todo
+        Set<Integer> combine = new Hashset<>(Arrays.asList(A));
+        for(int numa:A) {
+            combine.add(numa);
+        }
+
+        Set<Integer> combine = new Hashset<>(Arrays.asList(B));
+        for(int numb:B) {
+            if ()
+            );
+        }
+        return result;
+    }
+
+    // Sum of A - B
+    public int differenceOfSet(int[] A, int[] B)
+    {
+        int result = 0;
+        // todo
+        return result;
+    }
+}
+
+class Minesweeper
+{
+    public static int MAP_X = 10;
+    public static int MAP_Y = 10;
+    private int[][] map;
+    private int numOfpick;
+    public Minesweeper(int[][] map) { this.map = map; this.numOfpick = 0;}
+
+    public int pick(int x, int y)
+    {
+        int numOfMine = 0;
+        // todo
+        if(map[x][y]== 0) {
+            map[x][y] == 2
+        }
+        if(map[x][y] == 1) return -1;
+
+        return numOfMine;
+    }
+
+    public int getNumOfpick()
+    {
+        return numOfpick;
+    }
+
+    public boolean checkMap()
+    {
+        // todo
+        for(int i = 0; i < 10; i++) {
+            for(int j = 0; j < 10; j++) {
+                if(map[i][j] == 0) {
+                 int count = 0
+                } else {
+                    int count++;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void printMap() {
+        for(int i = 0; i < MAP_X; i++) {
+            for(int j = 0; j < MAP_Y; j++) {
+                System.out.print(map[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
 public class Main {
-    public static void main(String[] args) {
-        Subnet subnet_a = new Subnet(1,"172.31.0.0/20","ap-northeast-2a");
-        Subnet subnet_b = new Subnet(2,"172.31.16.0/20","ap-northeast-2b");
-        Subnet subnet_c = new Subnet(3,"172.31.32.0/20","ap-northeast-2c");
-        Subnet subnet_d = new Subnet(4,"172.31.48.0/20","ap-northeast-2d");
 
-        GateWay internetGateWay = new InternetGateWay();
-        //GateWay natGateWay = new NatGateWay(subnet_d); // infinity loop error
-        GateWay natGateWay = new NatGateWay(subnet_a); // success
-        RouteTable publicRouteTable = new RouteTable();
-        RouteTable privateRouteTable = new RouteTable();
+    public static void main(String[] args)
+    {
+        Calculator calculator = new Calculator();
+        System.out.println("intersection = "+ calculator.intersection(new int[]{1,2,4,11,6,7,5,14,19,16},new int[]{2,9,8,4,11,19,15,12}));
+        System.out.println("differenceOfSet = "+ calculator.differenceOfSet(new int[]{1,2,4,11,6,7,5,14,19,16},new int[]{2,9,8,4,11,19,15,12}));
 
-        publicRouteTable.setGateWay(internetGateWay);
-        publicRouteTable.addSubnet(subnet_a);
-        publicRouteTable.addSubnet(subnet_b);
-        publicRouteTable.addSubnet(subnet_c);
+        int[][] map = {
+                {0,0,1,0,0,0,0,1,0,0},
+                {0,0,0,0,0,1,0,1,0,0},
+                {0,0,1,0,0,0,0,0,0,1},
+                {0,1,0,0,1,0,0,0,0,0},
+                {1,0,0,0,1,0,0,1,0,0},
+                {0,1,0,1,0,0,0,0,0,0},
+                {0,0,1,0,1,0,0,1,0,0},
+                {0,1,0,0,0,0,1,0,0,1},
+                {1,0,1,0,1,0,0,0,0,0},
+                {0,0,0,0,0,0,1,0,0,0}
+        };
 
+        Minesweeper minesweeper = new Minesweeper(map);
+        Scanner scanner = new Scanner(System.in);
 
-        privateRouteTable.setGateWay(natGateWay);
-        privateRouteTable.addSubnet(subnet_d);
+        System.out.println("Minesweeper start!!!");
+        System.out.println("----------------------------------------------------");
+        minesweeper.printMap();
+        while(minesweeper.checkMap() == false)  {
+            System.out.print("x(0~9) : ");
+            int x = scanner.nextInt();
+            System.out.print("y(0~9) : ");
+            int y = scanner.nextInt();
 
-        subnet_a.transfer("a send message!");
-        subnet_d.transfer("d send message!");
+            if(x >= minesweeper.MAP_X || y >= minesweeper.MAP_Y || x < 0 || y < 0) break;
+
+            int numOfMine = minesweeper.pick(Minesweeper.MAP_Y - y -1, x);
+            if(numOfMine == -1) {
+                System.out.println("Mine has exploded!!!");
+                break;
+            } else {
+                System.out.println("There's a mine around : "+numOfMine);
+                minesweeper.printMap();
+            }
+        }
+
+        System.out.println("----------------------------------------------------");
+        System.out.println("Number of Attempts : " + minesweeper.getNumOfpick());
+        System.out.println("Minesweeper end!!!");
     }
 }
